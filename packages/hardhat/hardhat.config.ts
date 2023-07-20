@@ -19,12 +19,14 @@ const config: HardhatUserConfig = {
   solidity: {
     version: "0.8.17",
     settings: {
+      viaIR: true,
       optimizer: {
         enabled: true,
         // https://docs.soliditylang.org/en/latest/using-the-compiler.html#optimizer-options
         runs: 200,
       },
     },
+    allowUnlimitedContractSize: true,
   },
   defaultNetwork: "localhost",
   namedAccounts: {
