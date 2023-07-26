@@ -54,7 +54,7 @@ const Noob = () => {
   useEffect(() => {
     // Check if isLoadingToken is false and the token data is available
     if (!isLoadingToken && tokenOfOwnerByIndex) {
-      // Use the tokenOfOwnerByIndex hook to get the first token ID of the user
+      // Use the tokenOfOwnerByIndex hook to get the token ID of the user
       const tokenId = Number(tokenOfOwnerByIndex);
 
       // Set the fetched tokenId in the userNoob state
@@ -93,7 +93,7 @@ const Noob = () => {
 
   return (
     <div>
-      <div>
+      <div className="flex justify-center">
         <button onClick={() => mint()}>{isMinting ? "minting" : "mint"}</button>
       </div>
 

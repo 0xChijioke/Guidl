@@ -88,6 +88,18 @@ contract Noob is ERC721Enumerable, IERC721Receiver {
   mapping(uint256 => uint256[]) ethlogoById;
   mapping(uint256 => uint256[]) swordById;
 
+
+
+
+  mapping(address => bool) public allowedAddresses;
+
+
+
+  modifier onlyAllowed() {
+    require(allowedAddresses[msg.sender], "You are not allowed to mint.");
+    _;
+  }
+
   constructor(
     address _cape, 
     address _arms, 
