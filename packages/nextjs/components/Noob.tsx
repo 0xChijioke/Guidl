@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import NFTCard from "./NFTCard";
 import { useAccount } from "wagmi";
-import { useScaffoldContractRead, useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
+import { useScaffoldContract, useScaffoldContractRead, useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
 import { NFTData } from "~~/types";
 
 const Noob = () => {
@@ -9,6 +9,10 @@ const Noob = () => {
   const [guidler, setGuidler] = useState<boolean>(false);
   const [userNoob, setUserNoob] = useState<number | null>(null);
   const [noobGuidlData, setNoobGuidlData] = useState<NFTData | null>(null);
+
+  const { data: noob } = useScaffoldContract({ contractName: "Noob" });
+  console.log("noob: ", noob);
+  // console.log("Noob supply: ", noob?.totalSupply)
 
   const { writeAsync: mintItem, isLoading: isMinting } = useScaffoldContractWrite({
     contractName: "Noob",
